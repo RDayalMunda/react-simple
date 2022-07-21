@@ -13,6 +13,13 @@ function App() {
     { sn: 3, name: "Soap" },
     { sn: 4, name: "Bottle" } 
   ]
+
+  const onDelete = (item )=>{
+    console.log('deleting', item )
+    let deleteIndex = itemList.findIndex( i => i.sn==item.sn )
+    if (deleteIndex>=0) itemList.splice( deleteIndex , 1 )
+    console.log('fianl Data : ', itemList)
+  }
   return (
     <>
       <Header
@@ -21,6 +28,7 @@ function App() {
       />
       <Todolist
         itemList={itemList}
+        onDelete={onDelete}
       />
       <Footer />
     </>
