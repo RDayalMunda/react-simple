@@ -20,7 +20,7 @@ export default function AddTodo(props) {
     return (
         <div>
             <form onSubmit={submit} >
-                <input type="text" value={item.sn} onChange={(e)=>setItem({sn:e.target.value, name: item.name}) }/>
+                <input type="text" value={item.sn} onChange={(e)=>setItem({sn:item.sn, name: item.name}) }/>
                 <input type="text" value={item.name} onChange={(e)=>setItem( { sn:item.sn, name: e.target.value } )} />
                 <button>Submit</button>
             </form>

@@ -26,12 +26,7 @@ function App() {
 
   const onAddItem = (item)=>{
     console.log('adding Item : ', item)
-    let itemIndex = itemList.find( i => i.sn == item.sn )
-    if (itemIndex){
-      alert( "Item with this sn already exist" )
-      return
-    }
-    setItemList( [...itemList, item] )
+    setItemList( [...itemList, { sn: itemList[itemList.length-1].sn+1 , name: item.name }] )
   }
 
   return (
@@ -41,8 +36,9 @@ function App() {
         searchBar={headerData.searchBar}
       />
       <AddTodo
-        nextSn={itemList.length+1}
+        nextSn={itemList[itemList.length-1].sn+1}
         onAddItem={onAddItem}
+        key={ itemList.length }
       />
       <Todolist
         itemList={itemList}
