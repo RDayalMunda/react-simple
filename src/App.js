@@ -25,8 +25,7 @@ function App() {
   }
 
   const onAddItem = (item)=>{
-    console.log('adding Item : ', item)
-    setItemList( [...itemList, { sn: itemList[itemList.length-1].sn+1 , name: item.name }] )
+    setItemList( [...itemList, { sn: itemList.length?itemList[itemList.length-1].sn+1:1 , name: item.name }] )
   }
 
   return (
@@ -36,7 +35,7 @@ function App() {
         searchBar={headerData.searchBar}
       />
       <AddTodo
-        nextSn={itemList[itemList.length-1].sn+1}
+        nextSn={itemList.length? itemList[itemList.length-1].sn+1: 1}
         onAddItem={onAddItem}
         key={ itemList.length }
       />
